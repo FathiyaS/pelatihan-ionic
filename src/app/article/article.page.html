@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>article</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content>
+  
+    <ion-button fill="clear">Edit</ion-button>
+    <ion-button fill="clear">Hapus</ion-button>
+  </ion-card>
+
+  <!-- Modal Triggered by the button below -->
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Tambah Artikel</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input
+            label="Enter your name"
+            labelPlacement="stacked"
+            type="text"
+            placeholder="Your name"
+            [(ngModel)]="name"
+          ></ion-input>
+        </ion-item>
+        
+      </ion-content>
+      <div class="bottom-button">
+        <ion-button  (click)="cancel()">Cancel</ion-button>
+        <ion-button  (click)="confirm()" [strong]="true">Confirm</ion-button>
+      </div>
+       
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+<!-- Floating action button (FAB) for add icon -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button id="open-modal">
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
